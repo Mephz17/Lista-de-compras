@@ -1,0 +1,44 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<string> compras;
+    string item;
+    cout << "Digite:" << "\n";
+    cout << "1. Para adicionar" << "\n";
+    cout << "2. Para remover" << "\n";
+    cout << "3. Para ler a lista de compras" << "\n";
+    cout << "4. Para finalizar" << "\n";
+    int opcao;
+    while (opcao != 4){
+        cout << "Selecione a opcao: "; 
+        cin >> opcao;
+        switch (opcao){
+            case 1:
+            cout << "Digite o item que deseja adicionar: ";
+            cin >> item;
+            compras.push_back(item);
+            cout << "Item adicionado com sucesso!" << "\n";
+            break;
+
+            case 2:
+            if (compras.empty() == true){
+                cout << "A lista esta vazia.";
+            }
+            else{
+                compras.pop_back();
+            }
+            break;
+
+            case 3:
+            int j = 1;
+            for (string i : compras){
+                cout << j << ". " << i << "\n";
+                j++;
+            }
+            break;
+        }
+    }
+    return 0;
+}
